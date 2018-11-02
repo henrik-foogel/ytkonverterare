@@ -1,7 +1,7 @@
-
 var userInput = document.getElementById("number");
 var buttonPush = document.getElementById("kvm");
-var output = document.getElementById("output")
+var output = document.getElementById("output");
+var clearAll = document.getElementById("clearAll");
 
 userInput.value = "";
 
@@ -9,6 +9,7 @@ function converter(event) {
     id = event.target.id;
     var input = userInput.value;
 
+    Object.assign(clearAll.style,{visibility:"visible"});
     output.innerHTML = "";
 
     if(isNaN(input) || input == "") {
@@ -32,7 +33,13 @@ function converter(event) {
         calculations.kvadratkilometer + "<br> Fotbollsplaner: " + calculations.Fotbollsplaner;
     }
 
-}
+};
+
+function clearIt() {
+    userInput.value = "";
+    output.innerHTML = "";
+    Object.assign(clearAll.style,{visibility:"hidden"});
+};
 
 function kvadratmeter (v) {
     kvm = v * 1;
@@ -60,7 +67,7 @@ function kvadratkilometer(v) {
         kvadratkilometer: kvKm,
         Fotbollsplaner: fbp
     };
-}
+};
 
 function hektar(v) {
     kvm = v * 10000;
@@ -74,7 +81,7 @@ function hektar(v) {
         kvadratkilometer: kvKm,
         Fotbollsplaner: fbp
     };
-}
+};
 
 function Fotbollsplaner(v) {
     kvm = v * 6825.938566552901;
@@ -88,4 +95,4 @@ function Fotbollsplaner(v) {
         kvadratkilometer: kvKm,
         Fotbollsplaner: fbp
     };
-}
+};
